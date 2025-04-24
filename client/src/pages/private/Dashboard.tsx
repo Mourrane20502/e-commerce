@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useState } from "react";
 
 export default function Dashboard() {
@@ -41,8 +41,14 @@ export default function Dashboard() {
         description: "",
         category: "",
       });
-    } catch (err) {
-      console.error(err.response?.data?.message || "Error adding product");
+    } catch (err: unknown) {
+      if (err instanceof AxiosError) {
+        console.error(
+          err.response?.data?.message || "Error during registration"
+        );
+      } else {
+        console.error("An unexpected error occurred");
+      }
     }
   };
 

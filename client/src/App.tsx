@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Star, StarsIcon } from "lucide-react";
+import { Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import CategoryCard from "./components/CategoryCard";
 import Footer from "./components/navigation/Footer";
